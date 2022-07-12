@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp
+﻿using sORM;
+
+namespace ConsoleApp
 {
     internal class Program
     {
@@ -15,6 +17,12 @@
                 Console.WriteLine("Adding new Model project...");
                 Console.WriteLine("");
 
+                string datasourceName = @"X1-WICK\SQLEXPRESS";
+                string initialCatalog = "TestDB_Deleteme";
+                string dbConnectionString = $@"Data Source={datasourceName};Initial Catalog={initialCatalog};Integrated Security=true;";
+                string dbTableName = "TestTable";
+                ModelBuilder.BuildModelInstance(dbConnectionString, dbTableName);
+
                 Console.WriteLine("New Model project successfully added.");
                 Console.WriteLine("");
 
@@ -27,9 +35,5 @@
             }
         }
 
-        static void AddNewModelProject()
-        {
-
-        }
     }
 }
